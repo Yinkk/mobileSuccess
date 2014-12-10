@@ -23,4 +23,23 @@ angular.module('starter.services', [])
       return friends[friendId];
     }
   }
-});
+})
+
+.factory('News',function($http){
+        var news = [
+            { id:0, header : "Header 1", content : "Content 1", news_image : 'holder.js/80x80'},
+            { id:1, header : "Header 2", content : "Content 2", news_image : 'holder.js/80x80'},
+            { id:2, header : "Header 3", content : "Content 3", news_image : 'holder.js/80x80'},
+            { id:3, header : "Header 4", content : "Content 4", news_image : 'holder.js/80x80'},
+            { id:4, header : "Header 5", content : "Content 5", news_image : 'holder.js/80x80'},
+        ];
+
+        return {
+            all : function(){
+                return news;
+            },
+            get : function($id){
+                return news[$id];
+            }
+        }
+    });

@@ -1,6 +1,8 @@
 angular.module('starter.controllers', [])
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope,News) {
+    $scope.newsList = News.all();
+
 })
 
 .controller('NewsDetailCtrl', function($scope) {

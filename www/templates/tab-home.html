@@ -19,35 +19,12 @@
 
         <!--List news-->
 		<div class="list">
-		    <a class="item item-thumbnail-left" href="#/tab/news/detail">
-		      <img src="img/Chrysanthemum.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
 
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Tulips.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
-
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Hydrangeas.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
-
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Jellyfish.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
-
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Chrysanthemum.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
+            <a class="item item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/detail/{{news.}}">
+                <img data-src="holder.js/80x80" holder-fix>
+                <h2>{{news.header}}</h2>
+                <p>{{news.content}}</p>
+            </a>
 		</div>
 		<!--End List news-->
 	</div>

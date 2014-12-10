@@ -111,5 +111,13 @@ angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+})
+
+.directive('holderFix', function () {
+    return {
+        link: function (scope, element, attrs) {
+            Holder.run({ images: element[0], nocss: true });
+        }
+    };
+});;
 
