@@ -6,6 +6,9 @@ angular.module('starter.controllers', [])
 .controller('NewsDetailCtrl', function($scope) {
 })
 
+.controller('ProjectDetailCtrl', function($scope) {
+})
+
 .controller('ProjectCtrl', function($scope) {
 })
 
