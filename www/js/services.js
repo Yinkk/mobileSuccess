@@ -4,12 +4,13 @@ angular.module('starter.services', [])
 
     .factory('Base',function($http){
 
-        BASE_URL = 'http://localhost:8000/api/v1/';
+        BASE_URL = 'http://localhost:8000';
+        API_URL = BASE_URL + '/api/v1/';
 
         return {
             getBaseUrl : BASE_URL,
-            resolveUrl : function(uri){
-                return BASE_URL + uri;
+            resolveApiUrl : function(uri){
+                return API_URL + uri;
             }
         }
     })
@@ -41,13 +42,13 @@ angular.module('starter.services', [])
         return {
             all: function () {
                 return $http({
-                    url : Base.resolveUrl('news'),
+                    url : Base.resolveApiUrl('news'),
                     method : 'get'
                 });
             },
             get: function ($id) {
                 return $http({
-                    url : Base.resolveUrl('news/views/'+$id),
+                    url : Base.resolveApiUrl('news/view/'+$id),
                     method : 'get'
 
                 })

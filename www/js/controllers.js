@@ -13,14 +13,14 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('NewsDetailCtrl', function ($scope, News, $stateParams) {
+    .controller('NewsDetailCtrl', function ($scope,Base, News, $stateParams) {
         $id = $stateParams.newsId;
         $scope.news = {};
-
+        $scope.base_url = Base.getBaseUrl;
         News.get($id)
             .success(function (response) {
                 $scope.news = response.data;
-                console.log(response);
+                $ionicSlideBoxDelegate.update();
             })
     })
 

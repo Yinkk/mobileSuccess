@@ -7,17 +7,24 @@
   	<div class="list card">
 
 	  <div class="item item-avatar">
-	    <img src="mcfly.jpg">
-	    <h2>Marty McFly</h2>
-	    <p>November 05, 1955</p>
+	    <img ng-src="{{base_url}}{{news.user.profile_image.url}}">
+	    <h2>{{news.user.title}}{{news.user.firstname}} {{news.user.lastname}}</h2>
+	    <p>{{news.updated_at}}</p>
 	  </div>
 
 	  <div class="item item-body">
-	    <img class="full-image" src="delorean.jpg">
+          <div ng-if="news.photos.length > 0">
+              <ion-slide-box on-slide-changed="slideHasChanged($index)" style="height: 15em; width: 100%;">
+                  <ion-slide ng-repeat="photo in news.photos">
+                      <div class="box" style="width: 100%; height: 100%"><img ng-src="{{base_url}}{{photo.url}}"/> </div>
+                  </ion-slide>
+
+              </ion-slide-box>
+
+          </div>
+
 	    <p>
-	      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-	      the content is from a card-body consisting of an image and paragraph text. The footer
-	      consists of tabs, icons aligned left, within the card-footer.
+	      {{news.content}}
 	    </p>
 	    <p>
 	      <a href="#" class="subdued">1 Like</a>
