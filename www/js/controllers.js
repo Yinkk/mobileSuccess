@@ -1,7 +1,9 @@
 angular.module('starter.controllers', [])
 
-    .controller('HomeCtrl', function ($scope, News) {
+    .controller('HomeCtrl', function ($scope,Base, News) {
         $scope.newsList = [];
+        $scope.base_url = Base.getBaseUrl;
+
 
         News.all()
             .success(function (response) {
@@ -15,7 +17,7 @@ angular.module('starter.controllers', [])
 
     .controller('NewsDetailCtrl', function ($scope,$ionicSlideBoxDelegate,Base, News, $stateParams) {
         $id = $stateParams.newsId;
-        $scope.news = {};
+        $scope.news = null;
         $scope.base_url = Base.getBaseUrl;
         News.get($id)
             .success(function (response) {

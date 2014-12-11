@@ -5,119 +5,143 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-
-    // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "templates/tabs.html"
+    .run(function ($ionicPlatform) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            }
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
+        });
     })
 
-    // Each tab has its own nav history stack:
+    .config(function ($stateProvider, $urlRouterProvider) {
 
-    .state('tab.home', {
-      url: '/home',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/tab-home.html',
-          controller: 'HomeCtrl'
-        }
-      }
+        // Ionic uses AngularUI Router which uses the concept of states
+        // Learn more here: https://github.com/angular-ui/ui-router
+        // Set up the various states which the app can be in.
+        // Each state's controller can be found in controllers.js
+        $stateProvider
+
+            // setup an abstract state for the tabs directive
+            .state('tab', {
+                url: "/tab",
+                abstract: true,
+                templateUrl: "templates/tabs.html"
+            })
+
+            // Each tab has its own nav history stack:
+
+            .state('tab.home', {
+                url: '/home',
+                views: {
+                    'tab-home': {
+                        templateUrl: 'templates/tab-home.html',
+                        controller: 'HomeCtrl'
+                    }
+                }
+            })
+
+            .state('tab.news-detail', {
+                url: '/news/:newsId/detail',
+                views: {
+                    'tab-home': {
+                        templateUrl: 'templates/news-detail.html',
+                        controller: 'NewsDetailCtrl'
+                    }
+                }
+            })
+
+            .state('tab.project-detail', {
+                url: '/project/detail',
+                views: {
+                    'tab-project': {
+                        templateUrl: 'templates/project-detail.html',
+                        controller: 'ProjectDetailCtrl'
+                    }
+                }
+            })
+
+            .state('tab.project', {
+                url: '/project',
+                views: {
+                    'tab-project': {
+                        templateUrl: 'templates/tab-project.html',
+                        controller: 'ProjectCtrl'
+                    }
+                }
+            })
+            .state('tab.map', {
+                url: '/map',
+                views: {
+                    'tab-map': {
+                        templateUrl: 'templates/tab-map.html',
+                        controller: 'MapCtrl'
+                    }
+                }
+            })
+
+            .state('tab.media', {
+                url: '/media',
+                views: {
+                    'tab-media': {
+                        templateUrl: 'templates/tab-media.html',
+                        controller: 'MediaCtrl'
+                    }
+                }
+            })
+
+            .state('tab.contact', {
+                url: '/contact',
+                views: {
+                    'tab-contact': {
+                        templateUrl: 'templates/tab-contact.html',
+                        controller: 'ContactCtrl'
+                    }
+                }
+            })
+        ;
+
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/tab/home');
+
     })
 
-    .state('tab.news-detail', {
-      url: '/news/:newsId/detail',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/news-detail.html',
-          controller: 'NewsDetailCtrl'
-        }
-      }
+    .directive('holderFix', function () {
+        return {
+            link: function (scope, element, attrs) {
+                Holder.run({images: element[0], nocss: true});
+            }
+        };
     })
+    .filter('cut', function () {
+        return function (value, wordwise, max, tail) {
+            if (!value) return '';
 
-    .state('tab.project-detail', {
-      url: '/project/detail',
-      views: {
-        'tab-project': {
-          templateUrl: 'templates/project-detail.html',
-          controller: 'ProjectDetailCtrl'
-        }
-      }
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            value = value.substr(0, max);
+            if (wordwise) {
+                var lastspace = value.lastIndexOf(' ');
+                if (lastspace != -1) {
+                    value = value.substr(0, lastspace);
+                }
+            }
+
+            return value + (tail || ' …');
+        };
     })
-
-    .state('tab.project', {
-      url: '/project',
-      views: {
-        'tab-project': {
-          templateUrl: 'templates/tab-project.html',
-          controller: 'ProjectCtrl'
-        }
-      }
-    })
-    .state('tab.map', {
-      url: '/map',
-      views: {
-        'tab-map': {
-          templateUrl: 'templates/tab-map.html',
-          controller: 'MapCtrl'
-        }
-      }
-    })
-
-    .state('tab.media', {
-      url: '/media',
-      views: {
-        'tab-media': {
-          templateUrl: 'templates/tab-media.html',
-          controller: 'MediaCtrl'
-        }
-      }
-    })
-
-    .state('tab.contact', {
-      url: '/contact',
-      views: {
-        'tab-contact': {
-          templateUrl: 'templates/tab-contact.html',
-          controller: 'ContactCtrl'
-        }
-      }
-    })
-    ;
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
-
-})
-
-.directive('holderFix', function () {
-    return {
-        link: function (scope, element, attrs) {
-            Holder.run({ images: element[0], nocss: true });
-        }
-    };
-});;
-
+    .filter('badDateToISO', function () {
+        return function (badTime) {
+            var goodTime = badTime.replace(/(.+) (.+)/, "$1T$2Z");
+            return goodTime;
+        };
+    });
