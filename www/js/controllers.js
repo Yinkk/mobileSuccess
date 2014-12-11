@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('NewsDetailCtrl', function ($scope,Base, News, $stateParams) {
+    .controller('NewsDetailCtrl', function ($scope,$ionicSlideBoxDelegate,Base, News, $stateParams) {
         $id = $stateParams.newsId;
         $scope.news = {};
         $scope.base_url = Base.getBaseUrl;
