@@ -5,7 +5,9 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('NewsDetailCtrl', function($scope) {
+.controller('NewsDetailCtrl', function($scope,News,$stateParams) {
+        $id = $stateParams.newsId;
+        $scope.news = News.get($id);
 })
 
 .controller('ProjectDetailCtrl', function($scope) {

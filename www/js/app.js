@@ -49,7 +49,7 @@ angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.
     })
 
     .state('tab.news-detail', {
-      url: '/news/detail',
+      url: '/news/:newsId/detail',
       views: {
         'tab-home': {
           templateUrl: 'templates/news-detail.html',

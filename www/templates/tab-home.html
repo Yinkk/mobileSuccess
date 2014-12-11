@@ -5,7 +5,7 @@
 
 	<ion-content  class="scroll-content ionic-scroll  has-header"> 
 
-	<ion-slide-box delegate-handle="myslidebox" style="height: 15em;">
+	<ion-slide-box delegate-handle="myslidebox" style="height: 13em;">
           <ion-slide>
             <div class="box" style="background-color: red; height: 100%;">มหาวิทยาลัยพะเยา</div>
           </ion-slide>
@@ -20,7 +20,7 @@
         <!--List news-->
 		<div class="list">
 
-            <a class="item item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/detail/{{news.}}">
+            <a class="item item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
                 <img data-src="holder.js/80x80" holder-fix>
                 <h2>{{news.header}}</h2>
                 <p>{{news.content}}</p>
