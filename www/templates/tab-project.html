@@ -5,49 +5,28 @@
 
   <ion-content  class="scroll-content ionic-scroll  has-header"> 
 
-	<ion-slide-box delegate-handle="myslidebox">
+	<ion-slide-box delegate-handle="myslidebox" style="height: 13em;">
           <ion-slide>
-            <div class="box color1" style="background-color: #CCFF00; height: 300px;"><h6>มหาวิทยาลัยพะเยา</h6></div>
+            <div class="box color1" style="background-color: #CCFF00;">มหาวิทยาลัยพะเยา</div>
           </ion-slide>
           <ion-slide>
-            <div class="box color2" style="background-color: #CCFFFF; height: 300px;"><h6>คณะเทคโนโลยีสารสนเทศและการสื่อสาร</h6></div>
+            <div class="box color2" style="background-color: #CCFFFF; height: 300px;">คณะเทคโนโลยีสารสนเทศและการสื่อสาร</div>
           </ion-slide>
           <ion-slide>
-            <div class="box color3" style="background-color: #FF9900; height: 300px;"><h6>สาขาเทคโนโลยีคอมพิวเตอร์เคลื่อนที่</h6></div>
+            <div class="box color3" style="background-color: #FF9900; height: 300px;">สาขาเทคโนโลยีคอมพิวเตอร์เคลื่อนที่</div>
           </ion-slide>
         </ion-slide-box>
 
         <!--List news-->
 		<div class="list">
-		    <a class="item item-thumbnail-left" href="#/tab/project/detail">
+		    <a class="item item-thumbnail-left" ng-repeat="project in projectList" href="#/tab/project/detail">
 		      <img src="img/Chrysanthemum.jpg">
-		      <h2>Pretty Hate Machine</h2>
+		      <h2>{{project.name_en}}</h2>
+              <h3>{{project.name_th}}</h3>
 		      <p>Nine Inch Nails</p>
 		    </a>
 
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Tulips.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
 
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Hydrangeas.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
-
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Jellyfish.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
-
-		    <a class="item item-thumbnail-left" href="#">
-		      <img src="img/Chrysanthemum.jpg">
-		      <h2>Pretty Hate Machine</h2>
-		      <p>Nine Inch Nails</p>
-		    </a>
 		</div>
 		<!--End List news-->
 	</div>

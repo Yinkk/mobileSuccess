@@ -5,34 +5,45 @@ angular.module('starter.services', [])
     .factory('Base',function($http){
 
         BASE_URL = 'http://mct.ict.up.ac.th:10000';
-        API_URL = BASE_URL + '/api/v1/';
+        TEST_URL = 'http://localhost:8000';
+        API_URL = '/api/v1/';
+
+        getResolveBaseUrl = function(env){
+
+            if(env == undefined){
+                env = 'PRODUCTION'
+            }
+
+            uri = '';
+            if(env === 'PRODUCTION'){
+                uri = BASE_URL;
+            }else if(env === 'TEST') {
+                uri = TEST_URL;
+            }
+            return uri;
+        }
 
         return {
-            getBaseUrl : BASE_URL,
-            resolveApiUrl : function(uri){
-                return API_URL + uri;
+            getBaseUrl : function(env){
+                url =  getResolveBaseUrl(env);
+                console.log(url);
+                return url;
+            },
+            resolveApiUrl : function(uri,env){
+                env = typeof env == undefined ? 'PRODUCTION' : env;
+                uri = getResolveBaseUrl(env)+ API_URL+ uri;
+                return uri;
             }
         }
     })
 
-    .factory('Friends', function () {
-        // Might use a resource here that returns a JSON array
-
-        // Some fake testing data
-        var friends = [
-            {id: 0, name: 'Scruff McGruff'},
-            {id: 1, name: 'G.I. Joe'},
-            {id: 2, name: 'Miss Frizzle'},
-            {id: 3, name: 'Ash Ketchum'}
-        ];
-
+    .factory('Project',function($http,Base){
         return {
-            all: function () {
-                return friends;
-            },
-            get: function (friendId) {
-                // Simple index lookup
-                return friends[friendId];
+            all : function(){
+                return $http({
+                    url : Base.resolveApiUrl('projects','TEST'),
+                    method : 'get'
+                })
             }
         }
     })
