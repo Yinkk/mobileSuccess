@@ -4,7 +4,7 @@ angular.module('starter.services', [])
 
     .factory('Base',function($http){
 
-        BASE_URL = 'http://localhost:8000';
+        BASE_URL = 'http://mct.ict.up.ac.th:10000';
         API_URL = BASE_URL + '/api/v1/';
 
         return {
