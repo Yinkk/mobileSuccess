@@ -19,11 +19,11 @@
 
         <!--List news-->
 		<div class="list">
-		    <a class="item item-thumbnail-left" ng-repeat="project in projectList" href="#/tab/project/detail">
+		    <a class="item item-thumbnail-left" ng-repeat="project in projectList" href="#/tab/project/{{project.id}}/detail">
 		      <img src="img/Chrysanthemum.jpg">
 		      <h2>{{project.name_en}}</h2>
               <h3>{{project.name_th}}</h3>
-		      <p>Nine Inch Nails</p>
+		      <p>{{project.faculty.name_th}}</p>
 		    </a>
 
 

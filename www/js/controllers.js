@@ -15,25 +15,32 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('NewsDetailCtrl', function ($scope,$ionicSlideBoxDelegate,Base, News, $stateParams) {
+    .controller('NewsDetailCtrl', function ($scope,Base, News, $stateParams) {
         $id = $stateParams.newsId;
         $scope.news = null;
         $scope.base_url = Base.getBaseUrl();
         News.get($id)
             .success(function (response) {
                 $scope.news = response.data;
-                $ionicSlideBoxDelegate.update();
             })
     })
 
-    .controller('ProjectDetailCtrl', function ($scope) {
+    .controller('ProjectDetailCtrl', function ($scope,Base,Project,$stateParams) {
+        $id = $stateParams.projectId;
+        $scope.project = null;
+        $scope.base_url = Base.getBaseUrl('TEST');
+        Project.get($id)
+            .success(function(response){
+                $scope.project = response.data;
+            });
+
     })
 
     .controller('ProjectCtrl', function ($scope,Base,Project) {
 
         $scope.projectList = [];
         $scope.project = null;
-        $scope.base_url = Base.getBaseUrl();
+        $scope.base_url = Base.getBaseUrl('TEST');
 
         Project.all()
             .success(function(response){

@@ -59,7 +59,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter
             })
 
             .state('tab.project-detail', {
-                url: '/project/detail',
+                url: '/project/:projectId/detail',
                 views: {
                     'tab-project': {
                         templateUrl: 'templates/project-detail.html',

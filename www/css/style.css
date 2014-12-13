@@ -11,3 +11,8 @@ img.fill {
     max-height: 100%;
     height: auto;
 }
+
+.news-p p {
+    margin-bottom: 10px;
+    text-indent: 40px;
+}

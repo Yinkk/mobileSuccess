@@ -9,7 +9,7 @@
 	  <div class="item item-avatar">
 	    <img ng-src="{{base_url}}{{news.user.profile_image.url}}">
 	    <h2>{{news.user.title}}{{news.user.firstname}} {{news.user.lastname}}</h2>
-	    <p>{{news.updated_at | badDateToISO | date:'EEEE, MMMM d, y h:mm a'}}</p>
+	    <p>{{news.updated_at | badDateToISO | date:'MMMM d, y'}}</p>
 	  </div>
 
 	  <div class="item item-body">
@@ -23,8 +23,8 @@
 
           </div>
 
-	    <p>
-	      {{news.content}}
+	    <p ng-bind-html="news.content" class="news-p">
+
 	    </p>
 	    <p>
 	      <a href="#" class="subdued">1 Like</a>

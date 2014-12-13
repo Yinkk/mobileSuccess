@@ -41,9 +41,15 @@ angular.module('starter.services', [])
         return {
             all : function(){
                 return $http({
-                    url : Base.resolveApiUrl('projects'),
+                    url : Base.resolveApiUrl('projects','TEST'),
                     method : 'get'
                 })
+            },
+            get : function($id){
+                return $http({
+                    url : Base.resolveApiUrl('projects/view/'+$id,'TEST'),
+                    method : 'get'
+                });
             }
         }
     })
