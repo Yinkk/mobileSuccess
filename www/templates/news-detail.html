@@ -14,7 +14,7 @@
 
 	  <div class="item item-body">
           <div ng-if="news.photos.length > 0">
-              <ion-slide-box on-slide-changed="slideHasChanged($index)" style="height: 15em; width: 100%;">
+              <ion-slide-box on-slide-changed="slideHasChanged($index)" style="background-color: black; height: 15em; width: 100%;">
                   <ion-slide ng-repeat="photo in news.photos">
                       <div class="box" ><img class="fill" ng-src="{{base_url}}{{photo.url}}"/> </div>
                   </ion-slide>
