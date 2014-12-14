@@ -3,25 +3,28 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-  <ion-content class="padding">
-  	<div class="list card" ng-if="news">
+  <ion-content class="">
+      <div ng-if="news.photos.length > 0">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" style="background-color: black; height: 15em; width: 100%;">
+              <ion-slide ng-repeat="photo in news.photos">
+                  <div class="box" ><img class="fill" ng-src="{{base_url}}{{photo.url}}"/> </div>
+              </ion-slide>
 
-	  <div class="item item-avatar">
+          </ion-slide-box>
+
+      </div>
+  	<div class="list" ng-if="news">
+
+	  <!--div class="item item-avatar">
 	    <img ng-src="{{base_url}}{{news.user.profile_image.url}}">
 	    <h2>{{news.user.title}}{{news.user.firstname}} {{news.user.lastname}}</h2>
 	    <p>{{news.updated_at | badDateToISO | date:'MMMM d, y'}}</p>
-	  </div>
+	  </div-->
+
 
 	  <div class="item item-body">
-          <div ng-if="news.photos.length > 0">
-              <ion-slide-box on-slide-changed="slideHasChanged($index)" style="background-color: black; height: 15em; width: 100%;">
-                  <ion-slide ng-repeat="photo in news.photos">
-                      <div class="box" ><img class="fill" ng-src="{{base_url}}{{photo.url}}"/> </div>
-                  </ion-slide>
 
-              </ion-slide-box>
-
-          </div>
+          <h2>{{news.header}}</h2>
 
 	    <p ng-bind-html="news.content" class="news-p">
 

@@ -32,6 +32,7 @@ angular.module('starter.controllers', [])
         Project.get($id)
             .success(function(response){
                 $scope.project = response.data;
+                console.log($scope.project);
             });
 
     })
