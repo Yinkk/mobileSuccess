@@ -5,20 +5,23 @@
 
 	<ion-content  class="scroll-content ionic-scroll  has-header"> 
 
-	    <ion-slide-box delegate-handle="myslidebox" style="height: 13em;">
+	    <ion-slide-box delegate-handle="myslidebox" style="background-color: black; height: 15em; width: 100%;">
           <ion-slide>
-            <div class="box" style="background-color: red; height: 100%;">มหาวิทยาลัยพะเยา</div>
+            <div class="box"><img class="fill" src="img/763856-img-1398704808-5.jpg" style="height: 15em;"></div>
           </ion-slide>
           <ion-slide>
-            <div class="box" style="background-color: yellow; height: 100%;">คณะเทคโนโลยีสารสนเทศและการสื่อสาร</div>
+            <div class="box"><img class="fill" src="img/IMG_2013.JPG" style="height: 15em;"></div>
           </ion-slide>
           <ion-slide>
-            <div class="box" style="background-color: pink; height: 100%;">สาขาเทคโนโลยีคอมพิวเตอร์เคลื่อนที่</div>
+            <div class="box"><img class="fill" src="img/IMG_2022.JPG" style="height: 15em;"></div>
+          </ion-slide>
+           <ion-slide>
+            <div class="box"><img class="fill" src="img/IMG_2018.JPG" style="height: 15em;"></div>
           </ion-slide>
         </ion-slide-box>
 
         <!--List news-->
-		<div class="list" style="box-shadow: 5px 5px 5px #888888;">
+		<div class="list">
 
             <a class="item item-text-wrap item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
                 <img ng-src="{{base_url}}{{news.photos[0].url}}">
