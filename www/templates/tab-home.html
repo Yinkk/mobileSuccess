@@ -21,7 +21,7 @@
 		<div class="list">
 
             <a class="item item-text-wrap item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
-                <img ng-src="{{base_url}}{{news.user.profile_image.url}}">
+                <img ng-src="{{base_url}}{{news.photos[0].url}}">
                 <h2>{{news.header}}</h2>
                 <p ng-bind-html="news.content | cut:true:200:'...'"></p>
 
