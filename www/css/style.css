@@ -19,3 +19,8 @@ img.fill {
     margin-bottom: 10px;
     text-indent: 40px;
 }
+
+.btf-markdown p {
+    text-align: justify;
+    text-justify: kashida;
+}

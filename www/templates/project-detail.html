@@ -3,47 +3,31 @@
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
 
-  <ion-content class="">
+  <ion-content>
 
-    <div class="box" style="height: 20em;"><img style="width: 100%; height: 100%;" ng-src="{{base_url}}{{project.cover.url}}"/> </div>
+    <div class="" style="height: 15em;"><img style="width: 100%; height: 100%;" ng-src="{{base_url}}{{project.cover.url}}"/> </div>
+    <div class="list">
 
-  	<div class="list card">
-  	  <div class="item">
-	    <p>1. ชื่อโครงการ</p>
-	  </div>
+        <div class="item item-avatar-left">
+            <img src="holder.js/40x40/text:LOGO" holder-fix="">
+            <div class="row">
+                <div class="col">
+                    <h2>{{project.name_th}}</h2>
+                    <h3>{{project.faculty.name_th}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-offset-50"><button class="button button-small button-block button-balanced">Download Full Text</button></div>
+            </div>
+        </div>
 
-	  <div class="item">
-	    <p>2. ผู้รับผิดชอบโครงการ</p>
-	  </div>
+        <div class="item item-body">
+            <h2>บทสรุปผู้บริหาร (Executive Summary)</h2>
+            <btf-markdown btf-markdown="project.executive_summary" class="btf-markdown">
+            </btf-markdown>
+        </div>
 
-	   <div class="item">
-	    <p>3. บทสรุปผู้บริหาร</p>
-	  </div>
+    </div>
 
-	  <div class="item">
-	    <p>4. พื้นที่ที่ดำเนินงาน </p>
-	  </div>
-
-	  <div class="item">
-	    <p>5. บริบทของพื้นที่  </p>
-	  </div>
-
-	  <div class="item">
-	    <p>6. วัตถุประสงค์ </p>
-	  </div>
-
-	  <div class="item">
-	    <p>7. วิธีดำเนินงาน/กิจกรรม   </p>
-	  </div>
-
-	  <div class="item">
-	    <p>8. ผลงานดำเนินงานของโครงการ  </p>
-	  </div>
-
-	  <div class="item">
-	    <p>9. กิตติกรรมประกาศ  </p>
-	  </div>
-
-	</div>
   </ion-content>
 </ion-view>
