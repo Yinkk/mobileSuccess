@@ -28,7 +28,7 @@ angular.module('starter.controllers', [])
     .controller('ProjectDetailCtrl', function ($scope,Base,Project,$stateParams) {
         $id = $stateParams.projectId;
         $scope.project = null;
-        $scope.base_url = Base.getBaseUrl('TEST');
+        $scope.base_url = Base.getBaseUrl();
         Project.get($id)
             .success(function(response){
                 $scope.project = response.data;
@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
 
         $scope.projectList = [];
         $scope.project = null;
-        $scope.base_url = Base.getBaseUrl('TEST');
+        $scope.base_url = Base.getBaseUrl();
 
         Project.all()
             .success(function(response){

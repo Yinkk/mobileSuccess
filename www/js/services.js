@@ -41,13 +41,13 @@ angular.module('starter.services', [])
         return {
             all : function(){
                 return $http({
-                    url : Base.resolveApiUrl('projects','TEST'),
+                    url : Base.resolveApiUrl('projects'),
                     method : 'get'
                 })
             },
             get : function($id){
                 return $http({
-                    url : Base.resolveApiUrl('projects/view/'+$id,'TEST'),
+                    url : Base.resolveApiUrl('projects/view/'+$id),
                     method : 'get'
                 });
             }
