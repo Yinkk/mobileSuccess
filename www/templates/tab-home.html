@@ -23,10 +23,10 @@
         <!--List news-->
 		<div class="list">
 
-            <a class="item item-text-wrap item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
+            <a class="item item-text-wrap item-thumbnail-left auto-min-height" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
                 <img ng-src="{{base_url}}{{news.photos[0].url}}">
                 <h2>{{news.header}}</h2>
-                <p ng-bind-html="news.content | cut:true:100:'...'"></p>
+
 
             </a>
 		</div>

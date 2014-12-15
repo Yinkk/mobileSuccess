@@ -24,3 +24,7 @@ img.fill {
     text-align: justify;
     text-justify: kashida;
 }
+
+.auto-min-height {
+    min-height: auto;
+}
