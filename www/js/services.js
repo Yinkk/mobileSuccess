@@ -26,7 +26,7 @@ angular.module('starter.services', [])
         return {
             getBaseUrl : function(env){
                 url =  getResolveBaseUrl(env);
-                console.log(url);
+                //console.log(url);
                 return url;
             },
             resolveApiUrl : function(uri,env){
