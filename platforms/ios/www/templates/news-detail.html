@@ -1,0 +1,54 @@
+<ion-view title="{{news.header}}">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+  <ion-content class="">
+      <div ng-if="news.photos.length > 0">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" style="background-color: black; height: 15em; width: 100%;">
+              <ion-slide ng-repeat="photo in news.photos">
+                  <div class="box" ><img class="fill" ng-src="{{base_url}}{{photo.url}}"/> </div>
+              </ion-slide>
+
+          </ion-slide-box>
+
+      </div>
+  	<div class="list" ng-if="news">
+
+	  <!--div class="item item-avatar">
+	    <img ng-src="{{base_url}}{{news.user.profile_image.url}}">
+	    <h2>{{news.user.title}}{{news.user.firstname}} {{news.user.lastname}}</h2>
+	    <p>{{news.updated_at | badDateToISO | date:'MMMM d, y'}}</p>
+	  </div-->
+
+
+	  <div class="item item-body">
+
+          <h2>{{news.header}}</h2>
+
+	    <p ng-bind-html="news.content" class="news-p">
+
+	    </p>
+	   <!-- <p>
+	      <a href="#" class="subdued">1 Like</a>
+	      <a href="#" class="subdued">5 Comments</a>
+	    </p>-->
+	  </div>
+
+	  <!--<div class="item tabs tabs-secondary tabs-icon-left">
+	    <a class="tab-item" href="#">
+	      <i class="icon ion-thumbsup"></i>
+	      Like
+	    </a>
+	    <a class="tab-item" href="#">
+	      <i class="icon ion-chatbox"></i>
+	      Comment
+	    </a>
+	    <a class="tab-item" href="#">
+	      <i class="icon ion-share"></i>
+	      Share
+	    </a>
+	  </div>-->
+	</div>
+  </ion-content>
+</ion-view>
