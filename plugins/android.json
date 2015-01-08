@@ -19,6 +19,32 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 2
                         }
                     ]
                 }
@@ -36,6 +62,18 @@
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
         "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
+        },
+        "org.apache.cordova.file": {
+            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
+        },
+        "org.apache.cordova.file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
+        },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
+        },
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         }
     },

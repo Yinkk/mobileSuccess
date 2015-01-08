@@ -113,7 +113,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-project': {
                         templateUrl: 'templates/project-detail.html',
-                        controller: 'ProjectDetailCtrl'
+                        controller: 'ProjectDetailCtrl',
+                        resolve : {
+                            project : function(Project,$stateParams){
+                                return Project.get($stateParams.projectId);
+                            }
+                        }
                     }
                 }
             })
@@ -123,7 +128,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-project': {
                         templateUrl: 'templates/tab-project.html',
-                        controller: 'ProjectCtrl'
+                        controller: 'ProjectCtrl',
+                        resolve : {
+                            projects : function(Project,$stateParams){
+                                return Project.all()
+                            }
+                        }
                     }
                 }
             })

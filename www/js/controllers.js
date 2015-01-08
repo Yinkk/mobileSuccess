@@ -15,25 +15,32 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ProjectDetailCtrl', function ($scope,Base,Project,$stateParams) {
+    .controller('ProjectDetailCtrl', function ($scope,$cordovaInAppBrowser,$cordovaToast,Base,Project,$stateParams,project) {
         $id = $stateParams.projectId;
-        Project.get($id).success(function(response){
-            $scope.project = response.data;
-        })
-        $scope.base_url = Base.getBaseUrl();
+        var project = $scope.project = project.data.data;
+        var base_url = $scope.base_url = Base.getBaseUrl();
+
+        $scope.downloadFullText = function(){
+            if (ionic.Platform.isWebView() || ionic.Platform.isAndroid()){
+
+                url_file = base_url + project.fulltext.url;
+                $cordovaInAppBrowser.open(url_file);
+
+            }else {
+                console.log("isWebView false");
+            }
+
+        }
 
     })
 
-    .controller('ProjectCtrl', function ($scope,Base,Project) {
+    .controller('ProjectCtrl', function ($scope,Base,Project,projects) {
 
-        $scope.projectList = [];
+        $scope.projectList = projects.data.data;
         $scope.project = null;
         $scope.base_url = Base.getBaseUrl();
 
-        Project.all()
-            .success(function(response){
-                $scope.projectList = response.data;
-            })
+
 
     })
 

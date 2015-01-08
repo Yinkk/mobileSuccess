@@ -50,6 +50,13 @@ angular.module('starter.services', [])
                     url : Base.resolveApiUrl('project/view/'+$id),
                     method : 'get'
                 });
+            },
+            getFullText : function($id){
+                return $http({
+                    url: '/admin/api/project/full-text/'+$id,
+                    method: 'get',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                })
             }
         }
     })
