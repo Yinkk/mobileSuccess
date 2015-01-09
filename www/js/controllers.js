@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
             if (ionic.Platform.isWebView() || ionic.Platform.isAndroid()){
 
                 url_file = base_url + project.fulltext.url;
-                $cordovaInAppBrowser.open(url_file);
+                window.open(url_file,"_system","location=yes,enableViewportScale=yes,hidden=yes");
 
             }else {
                 console.log("isWebView false");
