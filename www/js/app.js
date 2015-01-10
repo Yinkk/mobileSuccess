@@ -115,7 +115,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                         controller: 'ProjectMoreDetailCtrl',
                         resolve : {
                             project : function(Project,$stateParams){
-                                return Project.get($stateParams.projectId);
+                                return Project.getCurrent();
                             }
                         }
                     }
@@ -131,6 +131,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                         resolve : {
                             project : function(Project,$stateParams){
                                 return Project.get($stateParams.projectId);
+                            },
+                            project_photos : function(Project,$stateParams){
+                                return Project.getPhotos($stateParams.projectId);
                             }
                         }
                     }

@@ -9,7 +9,7 @@ angular.module('starter.services', [])
         API_URL = '/m/v1/';
 
         getResolveBaseUrl = function(env){
-            env = 'TEST'
+            env = 'PRODUCTION'
             if(env == undefined){
                 env = 'PRODUCTION'
             }
@@ -56,11 +56,19 @@ angular.module('starter.services', [])
                 });
             },
             getCurrent : function(){
+                //console.log(project);
                 return project
             },
             getFullText : function($id){
                 return $http({
-                    url: '/admin/api/project/full-text/'+$id,
+                    url: Base.resolveApiUrl('project/full-text/'+$id),
+                    method: 'get',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                })
+            },
+            getPhotos : function($id){
+                return $http({
+                    url: Base.resolveApiUrl('project/photos/'+$id),
                     method: 'get',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 })

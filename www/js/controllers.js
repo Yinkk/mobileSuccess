@@ -25,16 +25,19 @@ angular.module('starter.controllers', [])
         console.log("ProjectMoreDetailCtrl")
     })
 
-    .controller('ProjectDetailCtrl', function ($scope,$state,$cordovaInAppBrowser,Base,Project,$stateParams,project) {
+    .controller('ProjectDetailCtrl', function ($scope,$state,$cordovaInAppBrowser,Base,Project,$stateParams,project,project_photos) {
         $id = $stateParams.projectId;
+
         var project = $scope.project = project.data.data;
+        var project_photos = $scope.project_photos = project_photos.data.data;
+        console.log(project_photos);
         var base_url = $scope.base_url = Base.getBaseUrl();
 
         $scope.summary_cut = true;
 
         $scope.summaryText = function(text,size){
             if ($scope.summary_cut){
-                return text.slice(0,size) + "..."
+                return text.slice(0,size) 
             }else {
                 return text
             }
