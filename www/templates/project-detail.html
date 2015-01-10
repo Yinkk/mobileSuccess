@@ -24,8 +24,12 @@
             </div>
             <div class="row" style="padding: 0px;">
                 <div class="col">
-                    <btf-markdown btf-markdown="project.executive_summary" class="btf-markdown">
+                    <btf-markdown btf-markdown="summaryText(project.executive_summary,500)" class="btf-markdown">
                     </btf-markdown>
+
+                    <p style="cursor: pointer" ng-click="readMore('executive_summary','บทสรุปผู้บริหาร')">
+                        <span ng-show="summary_cut">Read More</span>
+                    </p>
                 </div>
             </div>
 

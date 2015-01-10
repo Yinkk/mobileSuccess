@@ -107,6 +107,20 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                     }
                 }
             })
+            .state('tab.project-more-detail', {
+                url: '/project/:projectId/more-detail/:detail_en/:detail_th',
+                views: {
+                    'tab-project': {
+                        templateUrl: 'templates/project-more-detail.html',
+                        controller: 'ProjectMoreDetailCtrl',
+                        resolve : {
+                            project : function(Project,$stateParams){
+                                return Project.get($stateParams.projectId);
+                            }
+                        }
+                    }
+                }
+            })
 
             .state('tab.project-detail', {
                 url: '/project/:projectId/detail',

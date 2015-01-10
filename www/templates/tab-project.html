@@ -33,7 +33,7 @@
 		<div class="list">
 		    <a class="item item-thumbnail-left item-text-wrap" ng-repeat="project in projectList" href="#/tab/project/{{project.id}}/detail">
 		      <img style="width:80px; height:80px;" ng-src="{{base_url}}{{project.cover.url}}">
-		      <h2>{{project.name_th}}</h2>
+		      <h2>{{project.name_th | cut:true:40:"..."}}</h2>
 		      <h3>{{project.faculty.name_th}}</h3>
 		    </a>
 		</div>

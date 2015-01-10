@@ -15,10 +15,41 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('ProjectDetailCtrl', function ($scope,$cordovaInAppBrowser,$cordovaToast,Base,Project,$stateParams,project) {
+    .controller('ProjectMoreDetailCtrl',function($scope,Base,Project,$stateParams,project){
+        $id = $stateParams.projectId
+        $scope.detail_en = $stateParams.detail_en;
+        $scope.detail_th = $stateParams.detail_th;
+        var project = $scope.project = project.data.data;
+        var base_url = $scope.base_url = Base.getBaseUrl();
+
+        console.log("ProjectMoreDetailCtrl")
+    })
+
+    .controller('ProjectDetailCtrl', function ($scope,$state,$cordovaInAppBrowser,Base,Project,$stateParams,project) {
         $id = $stateParams.projectId;
         var project = $scope.project = project.data.data;
         var base_url = $scope.base_url = Base.getBaseUrl();
+
+        $scope.summary_cut = true;
+
+        $scope.summaryText = function(text,size){
+            if ($scope.summary_cut){
+                return text.slice(0,size) + "..."
+            }else {
+                return text
+            }
+        }
+
+        $scope.readMore = function (detailEn,detailTh) {
+            $state.go("tab.project-more-detail",{
+                projectId:$id,
+                detail_en : detailEn,
+                detail_th : detailTh
+            })
+        }
+
+
+
 
         $scope.downloadFullText = function(){
             if (ionic.Platform.isWebView() || ionic.Platform.isAndroid()){
