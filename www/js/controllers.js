@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
 
         $scope.summaryText = function(text,size){
             if ($scope.summary_cut){
-                return text.slice(0,size) 
+                return text.slice(0,size)
             }else {
                 return text
             }
