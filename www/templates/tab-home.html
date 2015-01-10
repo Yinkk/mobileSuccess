@@ -1,4 +1,4 @@
-<ion-view title="Welcome">
+<ion-view title="ข่าวสารจากมหาวิทยาลัย">
 	<ion-nav-buttons side="left">
 		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	</ion-nav-buttons>
@@ -23,9 +23,10 @@
         <!--List news-->
 		<div class="list">
 
-            <a class="item item-text-wrap item-thumbnail-left" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
+            <a class="item item-text-wrap item-thumbnail-left item-icon-right" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
                 <img width="80px" height="80px"  class="" ng-src="{{base_url}}{{news.photos[0].url}}">
-                <h2>{{news.header | cut:true:50:"..."}}</h2>
+                <i class="icon ion-chevron-right"></i>
+                <h2>{{news.header | cut:true:80:"..."}}</h2>
             </a>
 		</div>
 		<!--End List news-->
