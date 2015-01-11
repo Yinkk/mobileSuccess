@@ -9,7 +9,7 @@ angular.module('starter.services', [])
         API_URL = '/m/v1/';
 
         getResolveBaseUrl = function(env){
-            env = 'TEST'
+            //env = 'TEST'
             if(env == undefined){
                 env = 'PRODUCTION'
             }
