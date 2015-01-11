@@ -159,7 +159,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
-                        controller: 'MapCtrl'
+                        controller: 'MapCtrl',
+                        resolve : {
+                            projects : function(Project,$stateParams){
+                                return Project.all()
+                            }
+                        }
                     }
                 }
             })
