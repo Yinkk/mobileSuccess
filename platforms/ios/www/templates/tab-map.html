@@ -1,0 +1,20 @@
+<ion-view title="Map">
+  <ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="" id="map-content">
+      <ui-gmap-google-map center='map.center' zoom='map.zoom' style="height: 100%;min-height: 100%">
+
+          <ui-gmap-marker
+                  idKey='1'
+                  coords='{
+                     latitude: 19.192128, longitude: 99.878834
+                  }'
+                  click='markerClick()'
+                  >
+          </ui-gmap-marker>
+
+      </ui-gmap-google-map>
+  </ion-content>
+</ion-view>
