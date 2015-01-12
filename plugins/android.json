@@ -13,11 +13,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         },
                         {
@@ -29,11 +29,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Toast\"><param name=\"android-package\" value=\"nl.xservices.plugins.Toast\" /></feature>",
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -55,13 +55,13 @@
         "com.ionic.keyboard": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
+        "nl.x-services.plugins.toast": {
+            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
+        },
         "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
-        },
-        "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
         "org.apache.cordova.file": {
@@ -70,10 +70,10 @@
         "org.apache.cordova.file-transfer": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
-        "nl.x-services.plugins.toast": {
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
-        "org.apache.cordova.inappbrowser": {
+        "org.apache.cordova.splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         }
     },
