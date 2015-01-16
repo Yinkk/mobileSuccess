@@ -9,7 +9,7 @@ angular.module('starter.services', [])
         API_URL = '/m/v1/';
 
         getResolveBaseUrl = function(env){
-            env = 'PRODUCTION'
+            //env = 'TEST'
             if(env == undefined){
                 env = 'PRODUCTION'
             }
@@ -38,6 +38,7 @@ angular.module('starter.services', [])
     })
 
     .factory('Project',function($http,Base,$q){
+        var project
         return {
             all : function(){
                 return $http({
@@ -49,7 +50,28 @@ angular.module('starter.services', [])
                 return $http({
                     url : Base.resolveApiUrl('project/view/'+$id),
                     method : 'get'
+                }).then(function(response){
+                    project = response;
+                    return response;
                 });
+            },
+            getCurrent : function(){
+                //console.log(project);
+                return project
+            },
+            getFullText : function($id){
+                return $http({
+                    url: Base.resolveApiUrl('project/full-text/'+$id),
+                    method: 'get',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                })
+            },
+            getPhotos : function($id){
+                return $http({
+                    url: Base.resolveApiUrl('project/photos/'+$id),
+                    method: 'get',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                })
             }
         }
     })

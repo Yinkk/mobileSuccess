@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.markdown', 'starter.services','uiGmapgoogle-maps'])
 
-    .run(function ($ionicPlatform,$ionicLoading,$rootScope,$cordovaSplashscreen) {
+    .run(function ($ionicPlatform,$ionicLoading,$rootScope,$cordovaSplashscreen,$cordovaToast,News) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -40,9 +40,18 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
 
             })
 
-            setTimeout(function() {
+            $rootScope.$on('loading:error',function(){
+                console.log("ERROR cannot connect internet");
+                $ionicLoading.hide();
+                $cordovaToast.show("มีข้อผิดพลาด ไม่สามารถติดต่อเซิฟเวอร์ได้",'long','center').then(function(success){
+
+                })
+            })
+
+            News.getAll().success(function(){
                 $cordovaSplashscreen.hide()
-            }, 5000)
+            });
+
         });
     })
     .config(function($httpProvider) {
@@ -55,7 +64,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 response: function(response) {
                     $rootScope.$broadcast('loading:hide')
                     return response
+                },
+                requestError : function(rejetion){
+                    $rootScope.$broadcast('loading:error')
+                    return rejetion
+                },
+                responseError : function(response){
+                    $rootScope.$broadcast('loading:error')
+                    return response
                 }
+
             }
         })
     })
@@ -174,7 +192,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-media': {
                         templateUrl: 'templates/tab-media.html',
-                        controller: 'MediaCtrl'
+                        controller: 'MediaCtrl',
+                        resolve : {
+                            videos : function(Project){
+                                return Project.getAllVideos();
+                            }
+                        }
                     }
                 }
             })
@@ -226,4 +249,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
             var goodTime = badTime.replace(/(.+) (.+)/, "$1T$2Z");
             return goodTime;
         };
-    });
+    })
+    .filter('trustAsResourceUrl', ['$sce', function($sce) {
+        return function (val) {
+            return $sce.trustAsResourceUrl(val);
+        };
+    }]);

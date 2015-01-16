@@ -112,9 +112,9 @@ angular.module('starter.controllers', [])
             }
         }])
 
-    .controller('MediaCtrl', ['$scope',
-        function ($scope) {
-
+    .controller('MediaCtrl', ['$scope','videos',
+        function ($scope,videos) {
+            $scope.videos = videos.data.data
         }])
 
     .controller('ContactCtrl', ['$scope',

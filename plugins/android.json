@@ -58,9 +58,6 @@
         "nl.x-services.plugins.toast": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },
-        "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
-        },
         "org.apache.cordova.device": {
             "PACKAGE_NAME": "com.ionicframework.mobilesuccess956772"
         },

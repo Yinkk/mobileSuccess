@@ -5,25 +5,39 @@
 
   <ion-content>
 
-    <div class="" style="height: 15em;"><img style="width: 100%; height: 100%;" ng-src="{{base_url}}{{project.cover.url}}"/> </div>
-    <div class="list">
+    <div class="" style="height: 14em;"><img style="width: 100%; height: 100%;" ng-src="{{base_url}}{{project.cover.url}}"/> </div>
 
+
+    <div class="list">
         <div class="item item-thumbnail-left item-text-wrap">
             <img ng-src="{{base_url}}{{project.faculty.logo.url}}">
-
             <h2>{{project.name_th}}</h2>
             <h3>{{project.faculty.name_th}}</h3>
-
-
-            <div class="row">
-                <div class="col col-offset-50"><button class="button button-small button-block button-balanced">Full Text</button></div>
-            </div>
+            <div class="col"><button ng-click="downloadFullText()" class="button button-block button-small button-balanced">Download File</button></div>
         </div>
 
-        <div class="item item-body">
-            <h2>บทสรุปผู้บริหาร (Executive Summary)</h2>
-            <btf-markdown btf-markdown="project.executive_summary" class="btf-markdown">
-            </btf-markdown>
+        <div class="item item-body" style="padding: 5px;">
+            <div class="row" style="padding: 0px;">
+                <div class="col">
+                    บทสรุปผู้บริหาร (Executive Summary)
+                </div>
+            </div>
+            <div class="row" style="padding: 0px;">
+                <div class="col">
+                    <btf-markdown btf-markdown="summaryText(project.executive_summary,500)" class="btf-markdown">
+                    </btf-markdown>
+
+                    <div ng-show="project.executive_summary.length > 500" style="font-size:14px; padding-top:20px; cursor: pointer" ng-click="readMore('executive_summary','บทสรุปผู้บริหาร')">Read More</div>
+                </div>
+            </div>
+        </div>
+        <div class="item" style="padding:0px 0px 0px 0px;" ng-if="project_photos.length">
+            <ion-slide-box delegate-handle="myslidebox" style="background-color: black; height: 14em; width: 100%;">
+                <ion-slide ng-repeat="photo in project_photos">
+                    <div class="box"><img class="fill" ng-src="{{base_url}}{{photo.url}}" style="height: 15em;"></div>
+                </ion-slide>
+
+            </ion-slide-box>
         </div>
 
     </div>

@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.markdown', 'starter.services','uiGmapgoogle-maps'])
 
-    .run(function ($ionicPlatform,$ionicLoading,$rootScope) {
+    .run(function ($ionicPlatform,$ionicLoading,$rootScope,$cordovaSplashscreen,$cordovaToast,News) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -39,6 +39,19 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 }
 
             })
+
+            $rootScope.$on('loading:error',function(){
+                console.log("ERROR cannot connect internet");
+                $ionicLoading.hide();
+                $cordovaToast.show("มีข้อผิดพลาด ไม่สามารถติดต่อเซิฟเวอร์ได้",'long','center').then(function(success){
+
+                })
+            })
+
+            News.getAll().success(function(){
+                $cordovaSplashscreen.hide()
+            });
+
         });
     })
     .config(function($httpProvider) {
@@ -51,7 +64,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 response: function(response) {
                     $rootScope.$broadcast('loading:hide')
                     return response
+                },
+                requestError : function(rejetion){
+                    $rootScope.$broadcast('loading:error')
+                    return rejetion
+                },
+                responseError : function(response){
+                    $rootScope.$broadcast('loading:error')
+                    return response
                 }
+
             }
         })
     })
@@ -103,13 +125,35 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                     }
                 }
             })
+            .state('tab.project-more-detail', {
+                url: '/project/:projectId/more-detail/:detail_en/:detail_th',
+                views: {
+                    'tab-project': {
+                        templateUrl: 'templates/project-more-detail.html',
+                        controller: 'ProjectMoreDetailCtrl',
+                        resolve : {
+                            project : function(Project,$stateParams){
+                                return Project.getCurrent();
+                            }
+                        }
+                    }
+                }
+            })
 
             .state('tab.project-detail', {
                 url: '/project/:projectId/detail',
                 views: {
                     'tab-project': {
                         templateUrl: 'templates/project-detail.html',
-                        controller: 'ProjectDetailCtrl'
+                        controller: 'ProjectDetailCtrl',
+                        resolve : {
+                            project : function(Project,$stateParams){
+                                return Project.get($stateParams.projectId);
+                            },
+                            project_photos : function(Project,$stateParams){
+                                return Project.getPhotos($stateParams.projectId);
+                            }
+                        }
                     }
                 }
             })
@@ -119,7 +163,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-project': {
                         templateUrl: 'templates/tab-project.html',
-                        controller: 'ProjectCtrl'
+                        controller: 'ProjectCtrl',
+                        resolve : {
+                            projects : function(Project,$stateParams){
+                                return Project.all()
+                            }
+                        }
                     }
                 }
             })
@@ -128,7 +177,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-map': {
                         templateUrl: 'templates/tab-map.html',
-                        controller: 'MapCtrl'
+                        controller: 'MapCtrl',
+                        resolve : {
+                            projects : function(Project,$stateParams){
+                                return Project.all()
+                            }
+                        }
                     }
                 }
             })
