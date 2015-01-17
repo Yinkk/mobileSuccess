@@ -1,0 +1,35 @@
+<ion-view title="ข่าวสารจากมหาวิทยาลัย">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+
+	<ion-content  class="scroll-content ionic-scroll  has-header"> 
+
+	    <ion-slide-box delegate-handle="myslidebox" style="background-color: black; height: 14em; width: 100%;">
+          <ion-slide>
+            <div class="box"><img class="fill" src="img/763856-img-1398704808-5.jpg" style="height: 15em;"></div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box"><img class="fill" src="img/IMG_2013.JPG" style="height: 15em;"></div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box"><img class="fill" src="img/IMG_2022.JPG" style="height: 15em;"></div>
+          </ion-slide>
+           <ion-slide>
+            <div class="box"><img class="fill" src="img/IMG_2018.JPG" style="height: 15em;"></div>
+          </ion-slide>
+        </ion-slide-box>
+
+        <!--List news-->
+		<div class="list">
+
+            <a class="item item-text-wrap item-thumbnail-left item-icon-right" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
+                <img width="80px" height="80px"  class="" ng-src="{{base_url}}{{news.photos[0].url}}">
+                <i class="icon ion-chevron-right"></i>
+                <h2>{{news.header | cut:true:80:"..."}}</h2>
+            </a>
+		</div>
+		<!--End List news-->
+	</div>
+</ion-content>
+</ion-view>

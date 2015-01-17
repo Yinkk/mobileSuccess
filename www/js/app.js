@@ -96,12 +96,19 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
 
             // Each tab has its own nav history stack:
 
-            .state('tab.home', {
+            .state('home', {
                 url: '/home',
+                templateUrl: 'templates/home.html',
+                controller: 'HomeCtrl'
+            })
+
+
+            .state('tab.news', {
+                url: '/news',
                 views: {
-                    'tab-home': {
-                        templateUrl: 'templates/tab-home.html',
-                        controller: 'HomeCtrl',
+                    'tab-news': {
+                        templateUrl: 'templates/tab-news.html',
+                        controller: 'NewsCtrl',
                         resolve : {
                             newsList : function(News){
                                 return News.getAll();
@@ -214,7 +221,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
         ;
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/home');
+        $urlRouterProvider.otherwise('/home');
 
     })
 

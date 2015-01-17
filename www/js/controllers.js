@@ -1,6 +1,10 @@
 angular.module('starter.controllers', [])
 
-    .controller('HomeCtrl', ['$scope', 'Base', 'News', 'newsList',
+    .controller("HomeCtrl",["$scope",function($scope){
+
+    }])
+
+    .controller('NewsCtrl', ['$scope', 'Base', 'News', 'newsList',
         function ($scope, Base, News, newsList) {
             $scope.newsList = newsList.data.data;
             $scope.base_url = Base.getBaseUrl();
