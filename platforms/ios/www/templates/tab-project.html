@@ -5,7 +5,7 @@
 
   <ion-content  class="scroll-content ionic-scroll  has-header"> 
 
-	 <!--ion-slide-box delegate-handle="myslidebox" style="background-color: black; height: 15em; width: 100%;">
+	 <ion-slide-box delegate-handle="myslidebox" style="background-color: black; height: 15em; width: 100%;">
           <ion-slide>
             <div class="box"><img class="fill" src="img/006_Agr.png" style="height: 15em;"></div>
           </ion-slide>
@@ -27,13 +27,13 @@
            <ion-slide>
             <div class="box"><img class="fill" src="img/IMG_2010.JPG" style="height: 15em;"></div>
           </ion-slide>
-        </ion-slide-box-->
+        </ion-slide-box>
 
         <!--List news-->
 		<div class="list">
 		    <a class="item item-thumbnail-left item-text-wrap" ng-repeat="project in projectList" href="#/tab/project/{{project.id}}/detail">
 		      <img style="width:80px; height:80px;" ng-src="{{base_url}}{{project.cover.url}}">
-		      <h2>{{project.name_th | cut:true:50:"..."}}</h2>
+		      <h2>{{project.name_th}}</h2>
 		      <h3>{{project.faculty.name_th}}</h3>
 		    </a>
 		</div>

@@ -1,26 +1,23 @@
+
 <ion-tabs class="tabs-icon-top" ng-controller="TabCtrl">
 
-    <ion-tab title="Home" icon-on="ion-ios7-home" icon-off="ion-ios7-home-outline" ng-click="go('home')">
-        <ion-nav-view name="tab-home"></ion-nav-view>
-    </ion-tab>
+  <ion-tab title="Home" icon-on="ion-ios7-home" icon-off="ion-ios7-home-outline" ng-click="go('tab.home')">
+    <ion-nav-view name="tab-home"></ion-nav-view>                   
+     </ion-tab>
+  <ion-tab title="Project" icon-on="ion-ios7-star" icon-off="ion-ios7-star-outline" ng-click="go('tab.project')">
+    <ion-nav-view name="tab-project"></ion-nav-view>                   
+   </ion-tab>
+   
+  <ion-tab title="Map" icon-on="ion-ios7-location" icon-off="ion-ios7-location-outline" ng-click="go('tab.map')">
+    <ion-nav-view name="tab-map"></ion-nav-view>                   
+  </ion-tab>
 
-    <ion-tab title="News" icon-on="ion-ios7-copy" icon-off="ion-ios7-copy-outline" ng-click="go('tab.news')">
-        <ion-nav-view name="tab-news"></ion-nav-view>
-    </ion-tab>
-    <ion-tab title="Project" icon-on="ion-ios7-star" icon-off="ion-ios7-star-outline" ng-click="go('tab.project')">
-        <ion-nav-view name="tab-project"></ion-nav-view>
-    </ion-tab>
+  <ion-tab title="Media" icon-on="ion-ios7-film" icon-off="ion-ios7-film-outline" ng-click="go('tab.media')">
+    <ion-nav-view name="tab-media"></ion-nav-view>                   
+  </ion-tab>
 
-    <ion-tab title="Map" icon-on="ion-ios7-location" icon-off="ion-ios7-location-outline" ng-click="go('tab.map')">
-        <ion-nav-view name="tab-map"></ion-nav-view>
-    </ion-tab>
-
-    <ion-tab title="Media" icon-on="ion-ios7-film" icon-off="ion-ios7-film-outline" ng-click="go('tab.media')">
-        <ion-nav-view name="tab-media"></ion-nav-view>
-    </ion-tab>
-
-    <ion-tab title="Contact Us" icon-on="ion-ios7-email" icon-off="ion-ios7-email-outline" ng-click="go('tab.contact')">
-        <ion-nav-view name="tab-contact"></ion-nav-view>
-    </ion-tab>
+  <ion-tab title="Contact Us" icon-on="ion-ios7-email" icon-off="ion-ios7-email-outline" ng-click="go('tab.contact')">
+    <ion-nav-view name="tab-contact"></ion-nav-view>                   
+  </ion-tab>
 
 </ion-tabs>

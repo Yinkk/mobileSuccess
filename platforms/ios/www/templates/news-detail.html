@@ -26,8 +26,9 @@
 
           <h2>{{news.header}}</h2>
 
-          <btf-markdown btf-markdown="news.content" class="btf-markdown">
-          </btf-markdown>
+	    <p ng-bind-html="news.content" class="news-p">
+
+	    </p>
 	   <!-- <p>
 	      <a href="#" class="subdued">1 Like</a>
 	      <a href="#" class="subdued">5 Comments</a>

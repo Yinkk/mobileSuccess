@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.markdown', 'starter.services','uiGmapgoogle-maps'])
 
-    .run(function ($ionicPlatform,$ionicLoading,$rootScope,$cordovaSplashscreen,$cordovaToast,News) {
+    .run(function ($ionicPlatform,$ionicLoading,$rootScope,$cordovaSplashscreen) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -40,18 +40,9 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
 
             })
 
-            $rootScope.$on('loading:error',function(){
-                console.log("ERROR cannot connect internet");
-                $ionicLoading.hide();
-                $cordovaToast.show("มีข้อผิดพลาด ไม่สามารถติดต่อเซิฟเวอร์ได้",'long','center').then(function(success){
-
-                })
-            })
-
-            News.getAll().success(function(){
+            setTimeout(function() {
                 $cordovaSplashscreen.hide()
-            });
-
+            }, 5000)
         });
     })
     .config(function($httpProvider) {
@@ -64,16 +55,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 response: function(response) {
                     $rootScope.$broadcast('loading:hide')
                     return response
-                },
-                requestError : function(rejetion){
-                    $rootScope.$broadcast('loading:error')
-                    return rejetion
-                },
-                responseError : function(response){
-                    $rootScope.$broadcast('loading:error')
-                    return response
                 }
-
             }
         })
     })
@@ -96,19 +78,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
 
             // Each tab has its own nav history stack:
 
-            .state('home', {
+            .state('tab.home', {
                 url: '/home',
-                templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl'
-            })
-
-
-            .state('tab.news', {
-                url: '/news',
                 views: {
-                    'tab-news': {
-                        templateUrl: 'templates/tab-news.html',
-                        controller: 'NewsCtrl',
+                    'tab-home': {
+                        templateUrl: 'templates/tab-home.html',
+                        controller: 'HomeCtrl',
                         resolve : {
                             newsList : function(News){
                                 return News.getAll();
@@ -199,12 +174,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                 views: {
                     'tab-media': {
                         templateUrl: 'templates/tab-media.html',
-                        controller: 'MediaCtrl',
-                        resolve : {
-                            videos : function(Project){
-                                return Project.getAllVideos();
-                            }
-                        }
+                        controller: 'MediaCtrl'
                     }
                 }
             })
@@ -221,7 +191,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
         ;
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/tab/home');
 
     })
 
@@ -256,9 +226,4 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
             var goodTime = badTime.replace(/(.+) (.+)/, "$1T$2Z");
             return goodTime;
         };
-    })
-    .filter('trustAsResourceUrl', ['$sce', function($sce) {
-        return function (val) {
-            return $sce.trustAsResourceUrl(val);
-        };
-    }]);
+    });

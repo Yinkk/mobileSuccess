@@ -1,10 +1,6 @@
 angular.module('starter.controllers', [])
 
-    .controller("HomeCtrl",["$scope",function($scope){
-
-    }])
-
-    .controller('NewsCtrl', ['$scope', 'Base', 'News', 'newsList',
+    .controller('HomeCtrl', ['$scope', 'Base', 'News', 'newsList',
         function ($scope, Base, News, newsList) {
             $scope.newsList = newsList.data.data;
             $scope.base_url = Base.getBaseUrl();
@@ -116,9 +112,9 @@ angular.module('starter.controllers', [])
             }
         }])
 
-    .controller('MediaCtrl', ['$scope','videos',
-        function ($scope,videos) {
-            $scope.videos = videos.data.data
+    .controller('MediaCtrl', ['$scope',
+        function ($scope) {
+
         }])
 
     .controller('ContactCtrl', ['$scope',
