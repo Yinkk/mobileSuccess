@@ -72,6 +72,13 @@ angular.module('starter.services', [])
                     method: 'get',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 })
+            },
+            getAllVideos : function(){
+                return $http({
+                    url: Base.resolveApiUrl('project/all-video'),
+                    method: 'get',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                })
             }
         }
     })

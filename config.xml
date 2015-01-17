@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.mobilesuccess956772" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
+<widget id="com.ionicframework.mobilesuccess956772" version="0.0.2" xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>mobileSuccess</name>
+    <name>UP SuccessModel</name>
     <description>
         An Ionic Framework and Cordova project.
     </description>
