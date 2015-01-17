@@ -88,6 +88,18 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
         $stateProvider
 
             // setup an abstract state for the tabs directive
+            .state('home', {
+                url: '/home',
+                templateUrl: 'templates/home.html',
+                controller: 'HomeCtrl'
+            })
+
+            .state('about', {
+                url: '/about',
+                templateUrl: 'templates/about.html',
+                controller: 'HomeCtrl'
+            })
+
             .state('tab', {
                 url: "/tab",
                 abstract: true,
@@ -95,13 +107,6 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
             })
 
             // Each tab has its own nav history stack:
-
-            .state('home', {
-                url: '/home',
-                templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl'
-            })
-
 
             .state('tab.news', {
                 url: '/news',
