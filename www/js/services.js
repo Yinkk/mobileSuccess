@@ -1,7 +1,5 @@
 angular.module('starter.services', [])
 
-
-
     .factory('Base',function($http){
 
         BASE_URL = 'http://mct.ict.up.ac.th:10000';
@@ -36,6 +34,23 @@ angular.module('starter.services', [])
             }
         }
     })
+    .factory('Faculty',function($http,Base) {
+        return {
+            getPhotos : function($id){
+                return $http({
+                    url : Base.resolveApiUrl('faculty/photos/'+$id),
+                    method : 'get'
+                })
+            },
+            getLogo : function($id){
+                return $http({
+                    url : Base.resolveApiUrl('faculty/logo/'+$id),
+                    method : 'get'
+                })
+            }
+        }
+    })
+
 
     .factory('Project',function($http,Base,$q){
         var project

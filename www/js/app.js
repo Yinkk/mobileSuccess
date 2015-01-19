@@ -97,7 +97,16 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
             .state('about', {
                 url: '/about',
                 templateUrl: 'templates/about.html',
-                controller: 'HomeCtrl'
+                controller: 'AboutCtrl',
+                resolve : {
+                    photos : function(Faculty){
+                        return Faculty.getPhotos(95);
+                    },
+                    logo : function(Faculty){
+                        return Faculty.getLogo(95);
+                    }
+                }
+
             })
 
             .state('tab', {
@@ -126,7 +135,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
             .state('tab.news-detail', {
                 url: '/news/:newsId/detail',
                 views: {
-                    'tab-home': {
+                    'tab-news': {
                         templateUrl: 'templates/news-detail.html',
                         controller: 'NewsDetailCtrl',
                         resolve : {

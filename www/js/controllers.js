@@ -4,6 +4,12 @@ angular.module('starter.controllers', [])
 
     }])
 
+    .controller("AboutCtrl",["$scope","Base","photos","logo",function($scope,Base,photos,logo){
+        $scope.photos  = photos.data.data;
+        $scope.logo = logo.data.data;
+        $scope.base_url = Base.getBaseUrl();
+    }])
+
     .controller('NewsCtrl', ['$scope', 'Base', 'News', 'newsList',
         function ($scope, Base, News, newsList) {
             $scope.newsList = newsList.data.data;
