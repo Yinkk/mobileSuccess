@@ -4,19 +4,17 @@
 
         <div class="list">
 
-            <div class="item" style="padding:0px 0px 0px 0px;">
-                <ion-slide-box delegate-handle="" style="background-color: black; height: 15em; width: 100%;">
+            <div class="item no-padding">
+                <ion-slide-box delegate-handle="" style="background-color: black; height: 100%; width: 100%;">
                     <ion-slide ng-repeat="photo in photos">
-                        <div class="box"><img class="fill" ng-src="{{base_url}}{{photo.url}}" style="height: 15em;"></div>
+                        <div class="box"><img class="fill" ng-src="{{base_url}}{{photo.url}}" style="height: 100%;"></div>
                     </ion-slide>
 
                 </ion-slide-box>
             </div>
 
-            <div class="item item-thumbnail-left item-text-wrap">
-                <img ng-src="{{base_url}}{{logo.url}}">
-                <h2>โครงการหนึ่งคณะหนึ่งโมเดล</h2>
-                <h3>มหาวิทยาลัยพะเยา</h3>
+            <div class="item no-padding">
+                <img style="width:100%; height: 100%;" src="img/welcomePage/welcomePage_TH_V02_01.jpg"/>
             </div>
 
             <div class="item item-body" style="padding: 5px;">
