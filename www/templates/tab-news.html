@@ -25,7 +25,7 @@
 
             <a class="item item-text-wrap item-thumbnail-left item-icon-right" ng-repeat="news in newsList" href="#/tab/news/{{news.id}}/detail">
                 <img width="80px" height="80px"  class="" ng-src="{{base_url}}{{news.photos[0].url}}">
-                <i class="icon ion-chevron-right"></i>
+                <i class="icon ion-chevron-right" style="color: #808080" ></i>
                 <h2>{{news.header | cut:true:80:"..."}}</h2>
             </a>
 		</div>
