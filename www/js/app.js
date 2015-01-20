@@ -88,26 +88,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
         $stateProvider
 
             // setup an abstract state for the tabs directive
-            .state('home', {
-                url: '/home',
-                templateUrl: 'templates/home.html',
-                controller: 'HomeCtrl'
-            })
 
-            .state('about', {
-                url: '/about',
-                templateUrl: 'templates/about.html',
-                controller: 'AboutCtrl',
-                resolve : {
-                    photos : function(Faculty){
-                        return Faculty.getPhotos(95);
-                    },
-                    logo : function(Faculty){
-                        return Faculty.getLogo(95);
-                    }
-                }
-
-            })
 
             .state('tab', {
                 url: "/tab",
@@ -231,6 +212,26 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                         controller: 'ContactCtrl'
                     }
                 }
+            })
+
+            .state('about', {
+                url: '/about',
+                templateUrl: 'templates/about.html',
+                controller: 'AboutCtrl',
+                resolve : {
+                    photos : function(Faculty){
+                        return Faculty.getPhotos(95);
+                    },
+                    logo : function(Faculty){
+                        return Faculty.getLogo(95);
+                    }
+                }
+            })
+
+            .state('home', {
+                url: '/home',
+                templateUrl: 'templates/home.html',
+                controller: 'HomeCtrl'
             })
         ;
 

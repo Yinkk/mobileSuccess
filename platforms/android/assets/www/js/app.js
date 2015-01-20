@@ -88,6 +88,8 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
         $stateProvider
 
             // setup an abstract state for the tabs directive
+
+
             .state('tab', {
                 url: "/tab",
                 abstract: true,
@@ -96,12 +98,12 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
 
             // Each tab has its own nav history stack:
 
-            .state('tab.home', {
-                url: '/home',
+            .state('tab.news', {
+                url: '/news',
                 views: {
-                    'tab-home': {
-                        templateUrl: 'templates/tab-home.html',
-                        controller: 'HomeCtrl',
+                    'tab-news': {
+                        templateUrl: 'templates/tab-news.html',
+                        controller: 'NewsCtrl',
                         resolve : {
                             newsList : function(News){
                                 return News.getAll();
@@ -114,7 +116,7 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
             .state('tab.news-detail', {
                 url: '/news/:newsId/detail',
                 views: {
-                    'tab-home': {
+                    'tab-news': {
                         templateUrl: 'templates/news-detail.html',
                         controller: 'NewsDetailCtrl',
                         resolve : {
@@ -211,10 +213,30 @@ angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers','btford.m
                     }
                 }
             })
+
+            .state('about', {
+                url: '/about',
+                templateUrl: 'templates/about.html',
+                controller: 'AboutCtrl',
+                resolve : {
+                    photos : function(Faculty){
+                        return Faculty.getPhotos(95);
+                    },
+                    logo : function(Faculty){
+                        return Faculty.getLogo(95);
+                    }
+                }
+            })
+
+            .state('home', {
+                url: '/home',
+                templateUrl: 'templates/home.html',
+                controller: 'HomeCtrl'
+            })
         ;
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/home');
+        $urlRouterProvider.otherwise('/home');
 
     })
 

@@ -1,42 +1,44 @@
 <ion-view title="เกี่ยวกับโครงการ">
 
-    <ion-content class="scroll-content ionic-scroll">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
 
-        <div class="list">
+	<ion-content class="scroll-content ionic-scroll">
 
-            <div class="item no-padding">
-                <ion-slide-box delegate-handle="" style="background-color: black; height: 100%; width: 100%;">
-                    <ion-slide ng-repeat="photo in photos">
-                        <div class="box"><img class="fill" ng-src="{{base_url}}{{photo.url}}" style="height: 100%;"></div>
-                    </ion-slide>
+		<div class="list">
 
-                </ion-slide-box>
-            </div>
+			<div class="item no-padding">
+				<ion-slide-box delegate-handle="" style="background-color: black; height: 20em; width: 100%;">
+					<ion-slide ng-repeat="photo in photos">
+						<div class="box"><img class="fill" ng-src="{{base_url}}{{photo.url}}" style="height: 100%;"></div>
+					</ion-slide>
 
-            <div class="item no-padding">
-                <img style="width:100%; height: 100%;" src="img/welcomePage/welcomePage_TH_V02_01.jpg"/>
-            </div>
+				</ion-slide-box>
+			</div>
 
-            <div class="item item-body" style="padding: 5px;">
-                <div class="row" style="padding: 0px;">
-                    <div class="col">
-                        เกี่ยวกับโครงการหนึ่งคณะหนึ่งโมเดล
-                    </div>
-                </div>
-                <div class="row" style="padding: 0px;">
-                    <div class="col">
-                        <btf-markdown class="btf-markdown">
-โครงการหนึ่งคณะหนึ่งโมเดลนั้น...
+			<div class="item no-padding">
+				<img style="width:100%; height: 100%;" src="img/welcomePage/welcomePage_TH_V02_01.jpg"/>
+			</div>
 
-ทดสอบ btf-markdown
-                        </btf-markdown>
-                    </div>
-                </div>
-            </div>
+			<div class="item item-body" style="padding: 5px;">
+				<div class="row" style="padding: 0px;">
+					<div class="col">
+						เกี่ยวกับโครงการหนึ่งคณะหนึ่งโมเดล
+					</div>
+				</div>
+				<div class="row" style="padding: 0px;">
+					<div class="col">
+						<btf-markdown class="btf-markdown">
 
-
-        </div>
+						</btf-markdown>
+					</div>
+				</div>
+			</div>
 
 
-    </ion-content>
+		</div>
+
+
+	</ion-content>
 </ion-view>

@@ -1,6 +1,16 @@
 angular.module('starter.controllers', [])
 
-    .controller('HomeCtrl', ['$scope', 'Base', 'News', 'newsList',
+    .controller("HomeCtrl",["$scope",function($scope){
+
+    }])
+
+    .controller("AboutCtrl",["$scope","Base","photos","logo",function($scope,Base,photos,logo){
+        $scope.photos  = photos.data.data;
+        $scope.logo = logo.data.data;
+        $scope.base_url = Base.getBaseUrl();
+    }])
+
+    .controller('NewsCtrl', ['$scope', 'Base', 'News', 'newsList',
         function ($scope, Base, News, newsList) {
             $scope.newsList = newsList.data.data;
             $scope.base_url = Base.getBaseUrl();
